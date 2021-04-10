@@ -566,7 +566,8 @@ void sensor(void *args){
 	stall_speed_kmh = Units::Airspeed2Kmh( stall_speed.get() );
 	stall_alarm_off_kmh = stall_speed_kmh/3;
 
-	if( Cipher::checkKeyAHRS() ){
+	//if( Cipher::checkKeyAHRS() ){
+	if(true){
 		ESP_LOGI( FNAME, "AHRS key valid=%d", ahrsKeyValid );
 	}else{
 		ESP_LOGI( FNAME, "AHRS key invalid=%d, disable AHRS Sensor", ahrsKeyValid );
@@ -1092,7 +1093,8 @@ extern "C" void  app_main(void){
 	bool setupPresent;
 	SetupCommon::initSetup( setupPresent );
 	if( !setupPresent ){
-		if( Cipher::init() )
+		//if( Cipher::init() )
+		if( true )
 			attitude_indicator.set(1);
 	}
 	else

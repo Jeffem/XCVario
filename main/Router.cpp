@@ -95,6 +95,19 @@ void Router::routeXCV(){
 // Route messages from serial interface S1
 void Router::routeS1(){
 	SString s1;
+	if(strcmp(s1.c_str(),"µDB")){//Un message est reçu de l'UDB
+		//On l'envoie sur le blue
+		if( blue_enable.get() == WL_WLAN )
+			if( forwardMsg( s1, wl_flarm_tx_q ))
+				ESP_LOGV(FNAME,"ttyS1 RX bytes %d forward to wl_flarm_tx_q port 8881", s1.length() );
+		if( blue_enable.get() == WL_BLUETOOTH )
+			if( forwardMsg( s1, bt_tx_q ))
+				ESP_LOGV(FNAME,"ttyS1 RX bytes %d forward to bt_tx_q", s1.length() );
+		// On extrait les données à destination du kalman
+
+		// et on met à jour le Kalman
+	}
+	else {
 	if( pullMsg( s1_rx_q, s1) ){
 		ESP_LOGD(FNAME,"ttyS1 RX len: %d bytes, Q:%d", s1.length(), bt_tx_q.isFull() );
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,s1.c_str(),s1.length(), ESP_LOG_DEBUG);
@@ -111,6 +124,7 @@ void Router::routeS1(){
 		if( serial2_tx.get() & RT_S1 )
 			if( forwardMsg( s1, s2_tx_q ))
 				ESP_LOGV(FNAME,"ttyS1 RX bytes %d looped to s2_tx_q", s1.length() );
+	}
 	}
 }
 

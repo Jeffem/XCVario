@@ -409,4 +409,10 @@ int Protocols::getCheckSum(char * s) {
 	}
 	return XOR;
 }
-
+// Ajout GFM pour UDB
+void Protocols::sendUDBmessage( char* str  ){
+char strUDB[2048];
+sprintf( strUDB,"µdb,%s", str );
+Router::sendXCV(strUDB);
+}
+//Fin Ajout GFM

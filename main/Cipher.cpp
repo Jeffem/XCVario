@@ -6,7 +6,7 @@
 #include "Setup.h"
 #include "freertos/FreeRTOS.h"
 
-
+/*
 
 std::string Cipher::Encrypt(std::string key, std::string plaintext) {
 	// std::string to hold our encrypted text
@@ -124,3 +124,4 @@ bool Cipher::checkKeyAHRS(){
 	ESP_LOGI(FNAME,"checkKeyAHRS() ID/KEY/DECID %s %s %s returns %d", id.c_str(), key.c_str(), decid.c_str(), ahrsKeyValid );
 	return ahrsKeyValid;
 }
+*/

@@ -86,7 +86,8 @@ int update_rentry(SetupMenuValFloat * p)
 int add_key( SetupMenuSelect * p )
 {
 	ESP_LOGI(FNAME,"add_key( %d ) ", p->getSelect() );
-	if( Cipher::checkKeyAHRS() ){
+	//if( Cipher::checkKeyAHRS() ){
+	if( true ){
 		if( !mpu->existsEntry( "Enable") )
 			mpu->addEntry( "Enable");
 	}
