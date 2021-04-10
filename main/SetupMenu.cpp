@@ -1055,7 +1055,8 @@ void SetupMenu::setup( )
 			ahrs->addMenu( mpu );
 			mpu->setHelp( PROGMEM "Enable High Accuracy Attitude Sensor (AHRS) with valid license key entered");
 			mpu->addEntry( "Disable");
-			if( ahrsKeyValid )
+			//if( ahrsKeyValid )
+			if( true )	
 				mpu->addEntry( "Enable");
 
 			SetupMenuSelect * ahrsaz = new SetupMenuSelect( "AHRS Autozero", true , 0, true, &ahrs_autozero );
