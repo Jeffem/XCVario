@@ -61,7 +61,9 @@
 #include "Flap.h"
 #include "SPL06-007.h"
 #include "Wind.h"
-
+//modif gfm
+#include "gps/include/UBX_Parser.h"
+//fin modif gfm
 // #include "sound.h"
 
 /*
@@ -1106,6 +1108,9 @@ void sensor(void *args){
 	xTaskCreatePinnedToCore(&drawDisplay, "drawDisplay", 8000, NULL, 13, dpid, 0);
 
 	Audio::startAudio();
+	//modif gfm
+	Init_UBX_Parser();
+	// fin modif gfm
 }
 
 extern "C" void  app_main(void){
