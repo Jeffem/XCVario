@@ -83,7 +83,8 @@ int update_rentry(SetupMenuValFloat * p)
 int add_key( SetupMenuSelect * p )
 {
 	ESP_LOGI(FNAME,"add_key( %d ) ", p->getSelect() );
-	if( Cipher::checkKeyAHRS() ){
+	//if( Cipher::checkKeyAHRS() ){
+	if( true ){
 		if( !mpu->existsEntry( "Enable") )
 			mpu->addEntry( "Enable");
 	}
@@ -1148,7 +1149,8 @@ void SetupMenu::setup( )
 			ahrs->addMenu( mpu );
 			mpu->setHelp( PROGMEM "Enable High Accuracy Attitude Sensor (AHRS) NMEA messages (need valid license key entered)");
 			mpu->addEntry( "Disable");
-			if( ahrsKeyValid )
+			//if( ahrsKeyValid )
+			if( true )	
 				mpu->addEntry( "Enable");
 
 			SetupMenuSelect * ahrsaz = new SetupMenuSelect( "AHRS Autozero", true , 0, true, &ahrs_autozero );

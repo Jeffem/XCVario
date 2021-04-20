@@ -33,6 +33,9 @@ public:
 
 	static void parseNMEA( char *str );
 	static int getCheckSum(char * s);
+	// Ajout GFM pour l'UDB
+	void sendUDBmessage( char* str  );
+	// Fin ajout GFM
 private:
 	static S2F *   _s2f;
 };
